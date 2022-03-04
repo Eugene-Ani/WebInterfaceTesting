@@ -14,11 +14,15 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class CallbackTest {
 
-        WebDriver driver;
+    WebDriver driver;
 
     @BeforeAll
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
+//        ChromeOptions options = new ChromeOptions();
+//        options.addArguments("--disable-dev-shm-usage");
+//        options.addArguments("--no-sandbox");
+//        options.addArguments("--headless");
     }
 
     @BeforeEach
@@ -27,7 +31,7 @@ public class CallbackTest {
         options.addArguments("--disable-dev-shm-usage");
         options.addArguments("--no-sandbox");
         options.addArguments("--headless");
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
     }
 
     @AfterEach
